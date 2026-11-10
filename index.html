@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- 👉 Bump the ?v= number (v=3, v=4…) whenever you change style.css or script.js so browsers load the new version -->
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4" />
 
 </head>
 
@@ -163,11 +163,11 @@
           <article class="glass-card skill-card" data-anim="fade-up">
             <div class="card-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
             <h3>Programming</h3>
-            <!-- To change a bar, edit data-level (0–100) -->
-            <div class="skill-bar" data-level="85"><div class="skill-info"><span>C# (.NET)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
-            <div class="skill-bar" data-level="80"><div class="skill-info"><span>JavaScript</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
-            <div class="skill-bar" data-level="80"><div class="skill-info"><span>SQL (MySQL)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
-            <div class="skill-bar" data-level="55"><div class="skill-info"><span>Python (basics)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <!-- Skill level: set data-level to "proficient", "intermediate" or "familiar" (the label and bar update automatically) -->
+            <div class="skill-level" data-level="proficient"><span class="skill-name">C# (.NET)</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="skill-level" data-level="intermediate"><span class="skill-name">JavaScript</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="skill-level" data-level="proficient"><span class="skill-name">SQL (MySQL)</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="skill-level" data-level="familiar"><span class="skill-name">Python (basics)</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
           </article>
 
           <!-- Web Development -->
@@ -175,8 +175,8 @@
             <div class="card-icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
             <h3>Web Development</h3>
             <p>Full-stack development with <strong>C# .NET</strong> (backend) and <strong>Angular</strong> (frontend).</p>
-            <div class="skill-bar" data-level="80"><div class="skill-info"><span>C# .NET (Backend / APIs)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
-            <div class="skill-bar" data-level="75"><div class="skill-info"><span>Angular (Frontend)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill-level" data-level="intermediate"><span class="skill-name">C# .NET (Backend / APIs)</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="skill-level" data-level="intermediate"><span class="skill-name">Angular (Frontend)</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
           </article>
 
           <!-- Database -->
@@ -184,16 +184,16 @@
             <div class="card-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
             <h3>Database Management</h3>
             <p>Database design and querying with <strong>MySQL</strong>.</p>
-            <div class="skill-bar" data-level="80"><div class="skill-info"><span>Database Design</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
-            <div class="skill-bar" data-level="80"><div class="skill-info"><span>SQL Querying</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill-level" data-level="proficient"><span class="skill-name">Database Design</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="skill-level" data-level="proficient"><span class="skill-name">SQL Querying</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
           </article>
 
           <!-- Industrial Automation -->
           <article class="glass-card skill-card" data-anim="fade-up">
             <div class="card-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
             <h3>Industrial Automation</h3>
-            <div class="skill-bar" data-level="75"><div class="skill-info"><span>SCADA Systems (IGSS)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
-            <div class="skill-bar" data-level="60"><div class="skill-info"><span>PLC – Ladder Logic (basics)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill-level" data-level="intermediate"><span class="skill-name">SCADA Systems (IGSS)</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="skill-level" data-level="familiar"><span class="skill-name">PLC – Ladder Logic (basics)</span><span class="level-meter" aria-hidden="true"><i></i><i></i><i></i></span></div>
           </article>
 
           <!-- Process Automation -->
@@ -413,6 +413,14 @@
               <i class="fa-solid fa-envelope" aria-hidden="true"></i>
               <div><span>Email</span><strong>seaomn27@gmail.com</strong></div>
             </a>
+            <a class="glass-card contact-item ripple" href="tel:+96898112524">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <div><span>Phone</span><strong>+968 9811 2524</strong></div>
+            </a>
+            <a class="glass-card contact-item ripple" href="https://wa.me/96898112524" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <div><span>WhatsApp</span><strong>Chat on WhatsApp</strong></div>
+            </a>
             <a class="glass-card contact-item ripple" href="http://www.linkedin.com/in/mohammed-alhasani-702645276" target="_blank" rel="noopener">
               <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
               <div><span>LinkedIn</span><strong>mohammed-alhasani</strong></div>
@@ -468,6 +476,6 @@
   <!-- Back to top -->
   <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

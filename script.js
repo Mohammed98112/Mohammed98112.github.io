@@ -8,7 +8,7 @@
    4. Mobile menu
    5. Sticky header, active link, back-to-top, parallax
    6. Typing animation
-   7. Scroll-reveal animations (+ skill bars, circles, GPA)
+   7. Scroll-reveal animations (+ language circles, GPA)
    8. Ripple effect
    9. Contact form (Formspree)
    10. Profile photo fallback
@@ -120,12 +120,8 @@
   }
 
   /* ===================== 7. SCROLL-REVEAL ===================== */
+  // Skill level meters fill via CSS (.in-view); only the language circles need JS.
   const fillSkillBars = (scope) => {
-    $$(".skill-bar", scope).forEach((bar) => {
-      const level = parseInt(bar.dataset.level, 10) || 0;
-      $(".fill", bar).style.width = `${level}%`;
-      animateNumber($(".pct", bar), 0, level, 1400, (v) => `${Math.round(v)}%`);
-    });
     $$(".circle", scope).forEach((c) => {
       const level = parseInt(c.dataset.level, 10) || 0;
       const circumference = 2 * Math.PI * 52; // r = 52

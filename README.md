@@ -21,6 +21,7 @@ assets/      – images and CV
 | 6 | **Project images** (optional) | `index.html` → `.project-img` | Replace the `<div class="project-placeholder">…</div>` with `<img src="assets/your-image.jpg" alt="…">`. |
 | 7 | **Full-Stack project description** | `index.html` → second project card | Update the title, text and tags once the project is finished. |
 | 8 | **LinkedIn URL** | `index.html` (search `linkedin.com`) | Already set to `http://www.linkedin.com/in/mohammed-alhasani-702645276`. Change it here if your profile URL changes. |
+| 9b | **Phone / WhatsApp** | `index.html` → search `96898112524` | Appears in two links: `tel:+96898112524` and `https://wa.me/96898112524`. Update both if your number changes. |
 | 9 | **GitHub URL** | `index.html` (search `github.com/Mohammed98112`) | Already set to your profile. |
 | 10 | **Link-preview image** | `assets/og-image.jpg` | This image appears when the link is shared on LinkedIn. Replace it with a 1200×630 image if you want. |
 | 11 | **Site URL in meta tags** | `index.html` → `og:url`, `og:image`, `canonical` | These are set to `https://mohammed98112.github.io/`. Update them if your site lives at a different address. |
@@ -29,7 +30,7 @@ assets/      – images and CV
 In `index.html`, find the comment `PROJECT CARD (copy this whole <article> block…)`. Copy the whole `<article>…</article>` block, paste it below the others, and edit the text.
 
 ### Changing skill levels
-Each progress bar has a `data-level="80"` attribute in `index.html`. Change the number, from 0 to 100.
+Each skill row in `index.html` has an attribute like `data-level="proficient"`. Set it to `proficient`, `intermediate` or `familiar`. The label and the 3-segment bar update automatically.
 
 ## 2. Publish on GitHub Pages
 
