@@ -12,6 +12,7 @@
    8. Ripple effect
    9. Contact form (Formspree)
    10. Profile photo fallback
+   11. Email & phone (hidden from spam bots)
    ========================================================= */
 
 (function () {
@@ -194,8 +195,10 @@
      - cooldown: one message per browser every 5 minutes
      - per-email limit: each email address can send at most 2 messages (per browser)
      - fake email check: format, blocked test/disposable domains, and a live
-       DNS lookup that the domain can actually receive email (MX record)
-     - message must be a real message (length, not just links)
+       DNS lookup that the domain can actually receive email (MX record),
+       typo suggestions (gmial.com -> gmail.com), random-looking addresses
+     - name must be letters only and not random
+     - message must be a real message (length, words, not just links, no spam words)
      Note: limits are stored in the visitor's browser, so they stop bots and
      repeat-sending, but a determined person could clear them. Formspree's own
      spam filter is the second line of defence. */
@@ -249,6 +252,29 @@
     return null;
   }
 
+  // Common typos of popular email providers → suggested correction
+  const DOMAIN_TYPOS = {
+    "gmial.com": "gmail.com", "gmai.com": "gmail.com", "gmal.com": "gmail.com", "gamil.com": "gmail.com",
+    "gmail.co": "gmail.com", "gmail.con": "gmail.com", "gmail.cm": "gmail.com", "gmaill.com": "gmail.com", "gnail.com": "gmail.com",
+    "hotmial.com": "hotmail.com", "hotmai.com": "hotmail.com", "hotmail.co": "hotmail.com", "hotmail.con": "hotmail.com", "hotmal.com": "hotmail.com",
+    "outlok.com": "outlook.com", "outlook.co": "outlook.com", "outlook.con": "outlook.com", "outloo.com": "outlook.com",
+    "yahooo.com": "yahoo.com", "yaho.com": "yahoo.com", "yahoo.co": "yahoo.com", "yahoo.con": "yahoo.com",
+    "icloud.co": "icloud.com", "icoud.com": "icloud.com", "iclod.com": "icloud.com",
+  };
+
+  // Words that almost only appear in spam
+  const SPAM_WORDS = /\b(casino|viagra|cialis|porn|xxx|escort|forex|bitcoin|crypto ?currency|backlinks?|seo services?|rank your (site|website)|guest post|payday loan|onlyfans)\b/i;
+
+  // Does a text look like random keyboard mashing?
+  function looksRandom(text) {
+    const t = text.toLowerCase();
+    const switches = (t.match(/[a-z](?=\d)|\d(?=[a-z])/g) || []).length;          // letter↔number switches
+    if (switches >= 6) return true;                                                // e.g. wqd2d23c326gdfd23
+    if (/(.)\1{4,}/.test(t)) return true;                                          // aaaaa, 11111
+    if (/[bcdfghjklmnpqrstvwxz]{6,}/.test(t.replace(/[^a-z]/g, ""))) return true;  // qwrtzpk (6+ consonants)
+    return false;
+  }
+
   async function validate(name, email, message) {
     if (form.querySelector('[name="_gotcha"]').value) return "Message blocked.";
     if ((Date.now() - pageLoadedAt) / 1000 < MIN_FILL_SECONDS) return "That was quick! Please take a moment and try again.";
@@ -257,21 +283,34 @@
     const waitMin = Math.ceil((last + COOLDOWN_MINUTES * 60000 - Date.now()) / 60000);
     if (waitMin > 0) return `Please wait ${waitMin} minute${waitMin > 1 ? "s" : ""} before sending another message.`;
 
-    if (name.length < 2 || /https?:\/\/|www\./i.test(name)) return "Please enter your real name.";
+    // ---- Name: 2–60 letters (any language), spaces, . ' - only ----
+    if (name.length < 2 || name.length > 60 || !/^[\p{L}][\p{L}\s.'’-]*$/u.test(name) || looksRandom(name)) {
+      return "Please enter your real name (letters only).";
+    }
 
-    const emailOk = /^[a-z0-9._%+-]+@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$/i.test(email) && !email.includes("..");
+    // ---- Email ----
+    const emailOk = email.length <= 100 && /^[a-z0-9._%+-]+@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$/i.test(email)
+      && !email.includes("..") && !/^[.]|[.]@/.test(email);
     if (!emailOk) return "Please enter a valid email address.";
+
+    const [local, domain] = email.split("@");
+    if (DOMAIN_TYPOS[domain]) return `Did you mean ${local}@${DOMAIN_TYPOS[domain]}? Please check your email address.`;
+    if (BLOCKED_DOMAINS.includes(domain)) return "Please use your real email address (temporary or test emails aren't accepted).";
+    if (local.length > 30 || looksRandom(local)) return "This email address doesn't look real. Please use your actual email.";
 
     const counts = store.get("contact_email_counts", {});
     if ((counts[email] || 0) >= MAX_PER_EMAIL) return "You've already sent the maximum number of messages from this email. I'll get back to you soon!";
 
-    const domain = email.split("@")[1];
-    if (BLOCKED_DOMAINS.includes(domain)) return "Please use your real email address (temporary or test emails aren't accepted).";
-
+    // ---- Message ----
     if (message.length < 15) return "Please write a slightly longer message.";
+    if (message.length > 2000) return "Your message is too long (2000 characters max).";
+    if ((message.match(/\p{L}+/gu) || []).length < 3) return "Please write a real message (at least a few words).";
+    if (/(.)\1{9,}/.test(message)) return "Please remove repeated characters from your message.";
     const links = (message.match(/https?:\/\/|www\./gi) || []).length;
     if (links > 2) return "Please include no more than 2 links in your message.";
+    if (SPAM_WORDS.test(message) || SPAM_WORDS.test(name)) return "Your message looks like spam and wasn't sent. Please contact me another way if this is a mistake.";
 
+    // ---- Live check: can the email domain receive mail? ----
     showStatus("Checking your email address…");
     if ((await domainAcceptsEmail(domain)) === false) return `The email domain "${domain}" can't receive email. Please check for typos.`;
 
@@ -320,4 +359,22 @@
   const hidePhoto = () => { profileImg.style.display = "none"; };
   if (profileImg.complete && profileImg.naturalWidth === 0) hidePhoto();
   profileImg.addEventListener("error", hidePhoto);
+
+  /* ===================== 11. EMAIL & PHONE (hidden from spam bots) ===================== */
+  // The email and phone number are stored in pieces and only assembled in the
+  // browser, so simple spam bots that scan the page code can't harvest them.
+  // 👉 To change them, edit these values.
+  const CONTACT = {
+    email: ["seaomn27", "gmail.com"],          // user, domain
+    phone: ["968", "9811", "2524"],            // country code, then the number in two parts
+  };
+  const emailAddr = CONTACT.email.join("@");
+  const phoneIntl = CONTACT.phone.join("");
+  const phonePretty = `+${CONTACT.phone[0]} ${CONTACT.phone.slice(1).join(" ")}`;
+
+  $$('[data-contact="email"]').forEach((a) => { a.href = `mailto:${emailAddr}`; });
+  $$('[data-contact="phone"]').forEach((a) => { a.href = `tel:+${phoneIntl}`; });
+  $$('[data-contact="whatsapp"]').forEach((a) => { a.href = `https://wa.me/${phoneIntl}`; });
+  $$('[data-contact-text="email"]').forEach((el) => { el.textContent = emailAddr; });
+  $$('[data-contact-text="phone"]').forEach((el) => { el.textContent = phonePretty; });
 })();

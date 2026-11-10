@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- 👉 Bump the ?v= number (v=3, v=4…) whenever you change style.css or script.js so browsers load the new version -->
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 
 </head>
 
@@ -107,7 +107,7 @@
         <ul class="social-links hero-anim" style="--d: 0.95s" aria-label="Social links">
           <li><a href="http://www.linkedin.com/in/mohammed-alhasani-702645276" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
           <li><a href="https://github.com/Mohammed98112" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
-          <li><a href="mailto:seaomn27@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+          <li><a href="#contact" data-contact="email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
         </ul>
       </div>
 
@@ -419,15 +419,16 @@
 
         <div class="contact-grid">
           <div class="contact-info" data-anim="fade-left">
-            <a class="glass-card contact-item ripple" href="mailto:seaomn27@gmail.com">
+            <!-- Email / phone / WhatsApp links are filled in by script.js (section 11) so spam bots can't read them from the page code -->
+            <a class="glass-card contact-item ripple" href="#contact" data-contact="email">
               <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-              <div><span>Email</span><strong>seaomn27@gmail.com</strong></div>
+              <div><span>Email</span><strong data-contact-text="email">seaomn27 [at] gmail [dot] com</strong></div>
             </a>
-            <a class="glass-card contact-item ripple" href="tel:+96898112524">
+            <a class="glass-card contact-item ripple" href="#contact" data-contact="phone">
               <i class="fa-solid fa-phone" aria-hidden="true"></i>
-              <div><span>Phone</span><strong>+968 9811 2524</strong></div>
+              <div><span>Phone</span><strong data-contact-text="phone">Tap to call</strong></div>
             </a>
-            <a class="glass-card contact-item ripple" href="https://wa.me/96898112524" target="_blank" rel="noopener">
+            <a class="glass-card contact-item ripple" href="#contact" data-contact="whatsapp" target="_blank" rel="noopener">
               <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
               <div><span>WhatsApp</span><strong>Chat on WhatsApp</strong></div>
             </a>
@@ -448,15 +449,15 @@
           <!-- Contact form – sends to Formspree form "meaaygvv" (manage it at formspree.io) -->
           <form class="glass-card contact-form" id="contact-form" action="https://formspree.io/f/meaaygvv" method="POST" data-anim="fade-up">
             <div class="form-group">
-              <input type="text" id="name" name="name" placeholder=" " required autocomplete="name" />
+              <input type="text" id="name" name="name" placeholder=" " required autocomplete="name" minlength="2" maxlength="60" />
               <label for="name">Your Name</label>
             </div>
             <div class="form-group">
-              <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
+              <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" maxlength="100" />
               <label for="email">Your Email</label>
             </div>
             <div class="form-group">
-              <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+              <textarea id="message" name="message" rows="5" placeholder=" " required minlength="15" maxlength="2000"></textarea>
               <label for="message">Your Message</label>
             </div>
             <!-- Honeypot field to reduce spam (hidden from users) -->
@@ -477,7 +478,7 @@
       <ul class="social-links" aria-label="Social links">
         <li><a href="http://www.linkedin.com/in/mohammed-alhasani-702645276" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
         <li><a href="https://github.com/Mohammed98112" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
-        <li><a href="mailto:seaomn27@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+        <li><a href="#contact" data-contact="email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
       </ul>
       <p>© 2026 Mohammed Yousuf Al-Hasani. All rights reserved.</p>
     </div>
@@ -486,6 +487,6 @@
   <!-- Back to top -->
   <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>
