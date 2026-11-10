@@ -56,8 +56,10 @@
     hamburger.setAttribute("aria-expanded", String(open));
     hamburger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     document.body.classList.toggle("no-scroll", open);
+    $("#menu-backdrop").classList.toggle("show", open);
   };
   hamburger.addEventListener("click", () => setMenu(!navMenu.classList.contains("open")));
+  $("#menu-backdrop").addEventListener("click", () => setMenu(false));
   $$(".nav-link").forEach((link) => link.addEventListener("click", () => setMenu(false)));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 

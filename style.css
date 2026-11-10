@@ -531,6 +531,76 @@ a.contact-item:hover { transform: translateX(6px); border-color: var(--accent); 
   .scroll-down { display: none; }
 }
 
+/* ---------- Phone polish ---------- */
+/* Keep "Al-Hasani" together instead of breaking at the hyphen */
+.hero-name .accent { white-space: nowrap; }
+
+/* Dim the page behind the open mobile menu */
+.menu-backdrop {
+  position: fixed; inset: 0; z-index: 999; background: rgba(2, 12, 27, 0.6);
+  backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+  opacity: 0; visibility: hidden; transition: opacity var(--transition), visibility var(--transition);
+}
+.menu-backdrop.show { opacity: 1; visibility: visible; }
+
+/* Touch screens: no "stuck" hover lift after tapping a card */
+@media (hover: none) {
+  .skill-card:hover, .project-card:hover, .cert-card:hover, .timeline-card:hover,
+  .edu-card:hover, a.contact-item:hover, .btn:hover, .social-links a:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .container { width: calc(100% - 2rem); }
+  .section { padding: 4rem 0; }
+  .section-title { align-items: baseline; margin-bottom: 2rem; }
+
+  /* Hero */
+  .hero-name { font-size: clamp(2rem, 9.5vw, 2.6rem); }
+  .hero-typing { font-size: 1.2rem; }
+  .hero-buttons { gap: 0.75rem; }
+
+  /* About photo smaller */
+  .photo-frame { width: min(220px, 62vw); }
+  .photo-frame::before { transform: translate(10px, 10px); }
+  .photo-fallback { font-size: 3.8rem; }
+  .about-grid { gap: 2.5rem; }
+
+  /* Cards: a little less padding so text has room */
+  .skill-card, .cert-card { padding: 1.4rem; }
+  .project-body { padding: 1.3rem; }
+
+  /* Language circles side by side */
+  .circles { gap: 1.2rem; }
+  .circle { width: 118px; height: 118px; }
+
+  /* Timeline: thinner left gutter */
+  .timeline::before { left: 17px; }
+  .timeline-item, .timeline-item.left, .timeline-item.right { padding: 0 0 2rem 3.1rem; }
+  .timeline-dot { width: 36px; height: 36px; font-size: 0.85rem; }
+  .timeline-card { padding: 1.3rem; }
+
+  /* Education */
+  .edu-card { padding: 1.5rem; gap: 1.5rem; }
+  .edu-main > div { width: 100%; }
+  .card-icon.big { width: 58px; height: 58px; font-size: 1.6rem; }
+  .gpa { width: 140px; height: 140px; align-self: center; }
+  .gpa-value { font-size: 2.3rem; }
+
+  /* Contact & footer */
+  .contact-item { padding: 0.95rem 1.1rem; }
+  .footer { padding-bottom: 5.5rem; } /* room for the back-to-top button */
+  .back-to-top { right: 1rem; bottom: 1rem; width: 44px; height: 44px; }
+}
+
+/* Very small phones (e.g. iPhone SE 1st gen, 320px) */
+@media (max-width: 360px) {
+  .hero-name { font-size: 1.85rem; }
+  .circle { width: 104px; height: 104px; }
+  .nav-logo { font-size: 1.2rem; }
+}
+
 /* ===================== 11. REDUCED MOTION ===================== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
