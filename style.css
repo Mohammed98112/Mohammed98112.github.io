@@ -332,6 +332,9 @@ body.loaded .hero-anim { animation: slide-up 0.8s ease forwards; animation-delay
 
 .circles { display: flex; flex-wrap: wrap; gap: 3rem; justify-content: center; }
 .circle { position: relative; width: 140px; height: 140px; }
+/* Languages card is a normal-width card: keep both circles side by side */
+.skill-card-languages .circles { gap: 1.5rem; margin-top: 0.5rem; }
+.skill-card-languages .circle { width: 124px; height: 124px; }
 .circle svg { width: 100%; height: 100%; transform: rotate(-90deg); }
 .circle circle { fill: none; stroke-width: 9; stroke-linecap: round; }
 .circle .track { stroke: var(--accent-soft); }
@@ -617,7 +620,8 @@ a.contact-item:hover { transform: translateX(6px); border-color: var(--accent); 
 /* Very small phones (e.g. iPhone SE 1st gen, 320px) */
 @media (max-width: 360px) {
   .hero-name { font-size: 1.85rem; }
-  .circle { width: 104px; height: 104px; }
+  .circle, .skill-card-languages .circle { width: 104px; height: 104px; }
+  .skill-card-languages .circles { gap: 1rem; }
   .nav-logo { font-size: 1.2rem; }
 }
 
