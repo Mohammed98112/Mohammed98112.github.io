@@ -30,7 +30,7 @@ assets/      – images and CV
 In `index.html`, find the comment `PROJECT CARD (copy this whole <article> block…)`. Copy the whole `<article>…</article>` block, paste it below the others, and edit the text.
 
 ### Changing skill levels
-Each skill row in `index.html` has an attribute like `data-level="proficient"`. Set it to `proficient`, `intermediate` or `familiar`. The label and the 3-segment bar update automatically.
+Each progress bar has a `data-level="80"` attribute in `index.html`. Change the number, from 0 to 100.
 
 ## 2. Publish on GitHub Pages
 
