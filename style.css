@@ -315,7 +315,7 @@ body.loaded .hero-anim { animation: slide-up 0.8s ease forwards; animation-delay
 .skill-card h3 { font-size: 1.15rem; margin-bottom: 1rem; }
 .skill-card p { font-size: 0.93rem; margin-bottom: 1rem; }
 .skill-card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: var(--shadow), var(--glow); }
-.skill-card-wide { grid-column: 1 / -1; }
+.skill-card-wide { grid-column: span 2; }
 
 .skill-bar { margin-bottom: 1rem; }
 .skill-info { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.35rem; }
@@ -488,6 +488,7 @@ a.contact-item:hover { transform: translateX(6px); border-color: var(--accent); 
 /* ===================== 10. RESPONSIVE ===================== */
 @media (max-width: 1024px) {
   .skills-grid, .cert-grid { grid-template-columns: repeat(2, 1fr); }
+  .skill-card-wide { grid-column: auto; }
   .nav-menu { gap: 1.1rem; }
 }
 

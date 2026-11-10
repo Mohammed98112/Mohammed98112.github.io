@@ -29,6 +29,16 @@ assets/      – images and CV
 ### Adding a new project
 In `index.html`, find the comment `PROJECT CARD (copy this whole <article> block…)`. Copy the whole `<article>…</article>` block, paste it below the others, and edit the text.
 
+### Contact form spam protection
+`script.js` (section 9) blocks messages that:
+- are sent less than 3 seconds after the page opens (bots)
+- come within 5 minutes of the previous message from the same browser
+- come from an email that has already sent 2 messages
+- use a badly formatted email, a test or temporary email domain, or a domain that can't receive email (checked via a public DNS lookup; if the lookup is blocked, this check is skipped)
+- have very short messages or more than 2 links
+
+Change the limits at the top of that section (`MIN_FILL_SECONDS`, `COOLDOWN_MINUTES`, `MAX_PER_EMAIL`, `BLOCKED_DOMAINS`). The limits are stored in the visitor's browser, so they stop bots and repeat-sending but not a determined person; Formspree's own spam filter is the second layer.
+
 ### Changing skill levels
 Each progress bar has a `data-level="80"` attribute in `index.html`. Change the number, from 0 to 100.
 
