@@ -28,22 +28,16 @@
   <!-- Favicon (inline SVG – no extra file needed) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A192F'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='%2364FFDA'%3EMH%3C/text%3E%3C/svg%3E" />
 
-  <!-- ===================== Fonts & Icons (CDN) =====================
-       Loaded without blocking the page: text shows immediately in a system font,
-       then switches to Poppins/Roboto, and icons appear as soon as they arrive. -->
+  <!-- ===================== Fonts & Icons (CDN) ===================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Roboto:wght@400;500&display=swap" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Roboto:wght@400;500&display=swap" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- 👉 Bump the ?v= number (v=3, v=4…) whenever you change style.css or script.js so browsers load the new version -->
-  <link rel="preload" as="image" href="assets/background.jpg" />
-  <link rel="stylesheet" href="style.css?v=9" />
+  <!-- Phones get a lighter background image (see --hero-image-mobile in style.css) -->
+  <link rel="preload" as="image" href="assets/background-mobile.jpg" media="(max-width: 900px)" />
+  <link rel="stylesheet" href="style.css?v=10" />
 
 </head>
 
@@ -496,6 +490,6 @@
   <!-- Back to top -->
   <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
 
-  <script src="script.js?v=9"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>

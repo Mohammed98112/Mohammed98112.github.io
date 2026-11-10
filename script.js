@@ -33,11 +33,18 @@
   };
   let loaderDone = false;
   const finishLoader = () => { if (!loaderDone) { loaderDone = true; hideLoader(); } };
-  // Show the short "MH" intro (~0.9s) only on the first page view of a visit.
-  // It no longer waits for fonts/icons/images to finish downloading.
-  let seenIntro = false;
-  try { seenIntro = sessionStorage.getItem("introSeen") === "1"; sessionStorage.setItem("introSeen", "1"); } catch (e) { /* ignore */ }
-  setTimeout(finishLoader, reduceMotion || seenIntro ? 0 : 900);
+  const isPhone = window.matchMedia("(max-width: 900px)").matches;
+  if (isPhone) {
+    // Phones/tablets: short intro (~0.9s) on the first page view of a visit only,
+    // without waiting for every font and image to download.
+    let seenIntro = false;
+    try { seenIntro = sessionStorage.getItem("introSeen") === "1"; sessionStorage.setItem("introSeen", "1"); } catch (e) { /* ignore */ }
+    setTimeout(finishLoader, reduceMotion || seenIntro ? 0 : 900);
+  } else {
+    // Computers: let the "MH" draw animation play (~1.6s), but never block longer than 3s.
+    window.addEventListener("load", () => setTimeout(finishLoader, reduceMotion ? 0 : 1600));
+    setTimeout(finishLoader, 3000);
+  }
 
   /* ===================== 3. THEME TOGGLE ===================== */
   // The site always opens in dark mode (set by data-theme="dark" on <html>).
@@ -153,6 +160,7 @@
 
   const revealEls = $$("[data-anim]");
   const reveal = (el) => {
+    if (el.classList.contains("in-view")) return; // already shown
     el.classList.add("in-view");
     // After the entrance animation ends, switch to normal hover transitions
     const delay = parseFloat(getComputedStyle(el).getPropertyValue("--delay")) || 0;
@@ -175,6 +183,21 @@
   } else {
     revealEls.forEach(reveal);
   }
+
+  // Safety net: if the observer ever misses an element (some phone browsers do),
+  // reveal anything that is on screen or already scrolled past, so no section stays empty.
+  const revealFallback = () => {
+    revealEls.forEach((el) => {
+      if (el.classList.contains("in-view")) return;
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) reveal(el);
+    });
+  };
+  let fallbackTimer = null;
+  window.addEventListener("scroll", () => {
+    clearTimeout(fallbackTimer);
+    fallbackTimer = setTimeout(revealFallback, 150);
+  }, { passive: true });
+  window.addEventListener("load", revealFallback);
 
   /* ===================== 8. RIPPLE EFFECT ===================== */
   $$(".ripple").forEach((btn) => {
