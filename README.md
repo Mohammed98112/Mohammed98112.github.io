@@ -16,7 +16,7 @@ assets/      – images and CV
 | 1 | **Hero background image** | `assets/background.jpg` | Replace the file with your own photo and keep the same name. To use a different file name, change `--hero-image` at the top of `style.css`. A wide image, 1920×1080 or larger, works best. |
 | 2 | **CV PDF** | `assets/CV.pdf` | This is currently your uploaded CV. To update it, replace the file and keep the name `CV.pdf`. |
 | 3 | **Profile photo** | `assets/profile.jpg` | Add a square photo with this name. Until you do, the site shows "MH" initials. |
-| 4 | **Formspree ID** | `index.html` → search `[MY_FORMSPREE_ID]` | Create a free form at https://formspree.io. You get a URL like `https://formspree.io/f/xyzabcd`. Replace `[MY_FORMSPREE_ID]` with `xyzabcd`. |
+| 4 | **Formspree ID** | `index.html` → search `formspree.io/f/` | ✅ Done: set to `meaaygvv`. To use a different form, replace that code. |
 | 5 | **Project links** | `index.html` → `#projects` section, `View on GitHub` buttons | Both buttons currently go to your GitHub profile. Change each `href` to the project's repo URL. |
 | 6 | **Project images** (optional) | `index.html` → `.project-img` | Replace the `<div class="project-placeholder">…</div>` with `<img src="assets/your-image.jpg" alt="…">`. |
 | 7 | **Full-Stack project description** | `index.html` → second project card | Update the title, text and tags once the project is finished. |
