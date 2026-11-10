@@ -37,11 +37,13 @@
   setTimeout(finishLoader, 3000);
 
   /* ===================== 3. THEME TOGGLE ===================== */
+  // The site always opens in dark mode (set by data-theme="dark" on <html>).
+  // The toggle switches theme for the current visit only and is not remembered.
   const root = document.documentElement;
+  try { localStorage.removeItem("theme"); } catch (e) { /* clear choice saved by older versions */ }
   $("#theme-toggle").addEventListener("click", () => {
     const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
     root.setAttribute("data-theme", next);
-    try { localStorage.setItem("theme", next); } catch (e) { /* storage blocked – ignore */ }
   });
 
   /* ===================== 4. MOBILE MENU ===================== */
