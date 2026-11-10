@@ -55,9 +55,9 @@
   --text: #334155;
   --text-muted: #5B6B82;
   --heading: #0A192F;
-  --accent: #0B8F74; /* darker teal for contrast on light backgrounds */
+  --accent: #087A63; /* darker teal for contrast on light backgrounds */
   --accent-2: #D9601A;
-  --accent-soft: rgba(11, 143, 116, 0.1);
+  --accent-soft: rgba(8, 122, 99, 0.1);
   --shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.25);
   --glow: 0 0 25px rgba(11, 143, 116, 0.2);
   --nav-bg: rgba(245, 247, 250, 0.88);
@@ -145,11 +145,6 @@ strong { color: var(--heading); font-weight: 500; }
 .nav-link:hover, .nav-link.active { color: var(--accent); }
 .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); transform-origin: left; }
 
-/* Hero is always dark, so keep nav text light while on top of it (dark or light mode) */
-.header:not(.scrolled) .nav-link:not(.active),
-.header:not(.scrolled) .nav-logo,
-.header:not(.scrolled) .theme-toggle { color: #E6F1FF; }
-
 .nav-actions { display: flex; align-items: center; gap: 0.6rem; }
 
 .theme-toggle {
@@ -189,8 +184,10 @@ strong { color: var(--heading); font-weight: 500; }
 .btn-outline:hover { background: var(--accent-soft); transform: translateY(-3px); box-shadow: var(--glow); }
 .btn-small { padding: 0.55rem 1.1rem; font-size: 0.85rem; background: transparent; color: var(--accent); }
 .btn-small:hover { background: var(--accent); color: #0A192F; }
-.hero .btn-outline { color: #64FFDA; border-color: #64FFDA; }
-.hero .btn-primary { background: #64FFDA; border-color: #64FFDA; }
+/* Light mode: white text on the darker teal for better contrast */
+[data-theme="light"] .btn-primary,
+[data-theme="light"] .btn-small:hover,
+[data-theme="light"] .back-to-top { color: #FFFFFF; }
 
 /* Ripple effect (span injected by script.js) */
 .ripple { position: relative; overflow: hidden; }
@@ -227,7 +224,7 @@ strong { color: var(--heading); font-weight: 500; }
 /* ===================== 6. HERO ===================== */
 .hero {
   position: relative; min-height: 100vh; min-height: 100svh;
-  display: flex; align-items: center; overflow: hidden; color: #CCD6F6;
+  display: flex; align-items: center; overflow: hidden; color: var(--text);
 }
 .hero-bg {
   position: absolute; inset: -10% 0 -10% 0; z-index: -2;
@@ -237,21 +234,22 @@ strong { color: var(--heading); font-weight: 500; }
 }
 .hero-overlay { position: absolute; inset: 0; z-index: -1; background: var(--overlay); }
 [data-theme="light"] .hero-overlay {
-  background: linear-gradient(180deg, rgba(10, 25, 47, 0.7) 0%, rgba(10, 25, 47, 0.8) 70%, var(--bg) 100%);
+  /* Light mode: soft white wash over the image so the hero matches the rest of the page */
+  background: linear-gradient(180deg, rgba(245, 247, 250, 0.86) 0%, rgba(245, 247, 250, 0.92) 60%, var(--bg) 100%);
 }
 
 .hero-content { padding-top: var(--nav-h); }
-.hero-greeting { font-family: var(--font-heading); color: #64FFDA; font-size: 1.05rem; margin-bottom: 0.6rem; }
-.hero-name { font-size: clamp(2.3rem, 6vw, 4.4rem); font-weight: 800; color: #E6F1FF; margin-bottom: 0.8rem; }
-.hero-name .accent { color: #64FFDA; }
+.hero-greeting { font-family: var(--font-heading); color: var(--accent); font-size: 1.05rem; margin-bottom: 0.6rem; }
+.hero-name { font-size: clamp(2.3rem, 6vw, 4.4rem); font-weight: 800; color: var(--heading); margin-bottom: 0.8rem; }
+.hero-name .accent { color: var(--accent); }
 .hero-typing {
   font-family: var(--font-heading); font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 600;
-  color: #CCD6F6; min-height: 1.5em; margin-bottom: 1rem;
+  color: var(--text); min-height: 1.5em; margin-bottom: 1rem;
 }
-.cursor { color: #64FFDA; animation: blink 0.9s step-end infinite; margin-left: 2px; }
+.cursor { color: var(--accent); animation: blink 0.9s step-end infinite; margin-left: 2px; }
 @keyframes blink { 50% { opacity: 0; } }
-.hero-title { color: #A8B2D1; font-size: clamp(0.95rem, 1.8vw, 1.1rem); max-width: 640px; }
-.hero-location { color: #A8B2D1; margin: 0.4rem 0 2rem; }
+.hero-title { color: var(--text-muted); font-size: clamp(0.95rem, 1.8vw, 1.1rem); max-width: 640px; }
+.hero-location { color: var(--text-muted); margin: 0.4rem 0 2rem; }
 .hero-location i { color: #FF8C42; margin-right: 0.3rem; }
 .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
 
@@ -263,16 +261,16 @@ body.loaded .hero-anim { animation: slide-up 0.8s ease forwards; animation-delay
 .social-links { display: flex; gap: 0.9rem; }
 .social-links a {
   width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
-  border: 1px solid rgba(100, 255, 218, 0.35); color: #64FFDA; font-size: 1.05rem;
+  border: 1px solid var(--accent); color: var(--accent); font-size: 1.05rem;
   transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
 }
-.social-links a:hover { transform: translateY(-4px); background: rgba(100, 255, 218, 0.12); box-shadow: 0 0 18px rgba(100, 255, 218, 0.35); }
+.social-links a:hover { transform: translateY(-4px); background: var(--accent-soft); box-shadow: var(--glow); }
 
 .scroll-down { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); }
-.mouse { display: block; width: 26px; height: 42px; border: 2px solid #64FFDA; border-radius: 14px; position: relative; }
+.mouse { display: block; width: 26px; height: 42px; border: 2px solid var(--accent); border-radius: 14px; position: relative; }
 .wheel {
   position: absolute; top: 7px; left: 50%; width: 4px; height: 8px; margin-left: -2px;
-  background: #64FFDA; border-radius: 2px; animation: wheel 1.6s ease infinite;
+  background: var(--accent); border-radius: 2px; animation: wheel 1.6s ease infinite;
 }
 @keyframes wheel { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(14px); } }
 
@@ -504,7 +502,6 @@ a.contact-item:hover { transform: translateX(6px); border-color: var(--accent); 
   }
   .nav-menu.open { transform: translateX(0); visibility: visible; }
   .nav-link { font-size: 1.1rem; }
-  .header:not(.scrolled) .nav-menu .nav-link:not(.active) { color: var(--text); }
   .hamburger { position: relative; z-index: 1001; }
 
   .about-grid { grid-template-columns: 1fr; }
