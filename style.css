@@ -323,6 +323,12 @@ body.loaded .hero-anim { animation: slide-up 0.8s ease forwards; animation-delay
 .skill-bar { margin-bottom: 1rem; }
 .skill-info { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.35rem; }
 .skill-info .pct { color: var(--accent); font-weight: 500; }
+/* Small "In training" label next to skills still being learned */
+.training-badge {
+  display: inline-block; margin-left: 0.4rem; padding: 0.05rem 0.45rem; border-radius: 99px;
+  font-size: 0.68rem; font-weight: 500; line-height: 1.5; vertical-align: 1px; white-space: nowrap;
+  color: var(--accent-2); background: rgba(255, 140, 66, 0.12); border: 1px solid rgba(255, 140, 66, 0.3);
+}
 .bar { height: 8px; border-radius: 99px; background: var(--accent-soft); overflow: hidden; }
 .fill {
   height: 100%; width: 0; border-radius: inherit;
