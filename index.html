@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===================== SEO ===================== -->
+  <title>Mohammed Yousuf Al-Hasani | Full-Stack Developer & SCADA / PLC Engineer</title>
+  <meta name="description" content="Portfolio of Mohammed Yousuf Al-Hasani – Computing (Oil & Gas) graduate with a 4.0 GPA, full-stack developer (C# .NET, Angular) and SCADA & PLC engineer based in Muscat, Oman." />
+  <meta name="keywords" content="Mohammed Al-Hasani, Full-Stack Developer, SCADA, PLC, Industrial Automation, Oil and Gas, Oman, C#, .NET, Angular" />
+  <meta name="author" content="Mohammed Yousuf Al-Hasani" />
+  <meta name="theme-color" content="#0A192F" />
+  <link rel="canonical" href="https://mohammed98112.github.io/" />
+
+  <!-- ===================== Open Graph (LinkedIn / Facebook preview) ===================== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mohammed Yousuf Al-Hasani | Full-Stack Developer & SCADA / PLC Engineer" />
+  <meta property="og:description" content="Computing (Oil & Gas) graduate · GPA 4.0 · C# .NET, Angular, SCADA & PLC · Muscat, Oman." />
+  <meta property="og:url" content="https://mohammed98112.github.io/" />
+  <meta property="og:image" content="https://mohammed98112.github.io/assets/og-image.jpg" />
+  <meta property="og:image:alt" content="Mohammed Yousuf Al-Hasani – Portfolio" />
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mohammed Yousuf Al-Hasani | Portfolio" />
+  <meta name="twitter:description" content="Full-Stack Developer · SCADA & PLC · Muscat, Oman" />
+  <meta name="twitter:image" content="https://mohammed98112.github.io/assets/og-image.jpg" />
+
+  <!-- Favicon (inline SVG – no extra file needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A192F'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='%2364FFDA'%3EMH%3C/text%3E%3C/svg%3E" />
+
+  <!-- ===================== Fonts & Icons (CDN) ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Apply saved theme before paint to avoid a flash -->
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+</head>
+
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== PAGE LOADER ===================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <svg class="loader-logo" viewBox="0 0 200 120">
+      <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle">MH</text>
+    </svg>
+  </div>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#home" class="nav-logo" aria-label="Back to home">
+        <span class="bracket">&lt;</span>MH<span class="bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light / dark mode">
+          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+        </button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home" aria-label="Introduction">
+      <!-- Background image is set in style.css via --hero-image -->
+      <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content container">
+        <p class="hero-greeting hero-anim" style="--d: 0.1s">Hello, I'm</p>
+        <h1 class="hero-name hero-anim" style="--d: 0.25s">Mohammed Yousuf <span class="accent">Al-Hasani</span></h1>
+        <p class="hero-typing hero-anim" style="--d: 0.4s" aria-live="polite">
+          <span id="typed-text"></span><span class="cursor" aria-hidden="true">|</span>
+        </p>
+        <p class="hero-title hero-anim" style="--d: 0.55s">Computing (Oil &amp; Gas) Graduate | Full-Stack Developer | SCADA &amp; PLC</p>
+        <p class="hero-location hero-anim" style="--d: 0.65s"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Muscat, Oman</p>
+
+        <div class="hero-buttons hero-anim" style="--d: 0.8s">
+          <a href="assets/CV.pdf" class="btn btn-primary ripple" download>
+            <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
+          </a>
+          <a href="#contact" class="btn btn-outline ripple">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact Me
+          </a>
+        </div>
+
+        <ul class="social-links hero-anim" style="--d: 0.95s" aria-label="Social links">
+          <li><a href="http://www.linkedin.com/in/mohammed-alhasani-702645276" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+          <li><a href="https://github.com/Mohammed98112" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+          <li><a href="mailto:seaomn27@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+        </ul>
+      </div>
+
+      <a href="#about" class="scroll-down" aria-label="Scroll to About section">
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title" data-anim="fade-up"><span class="num">01.</span> About Me</h2>
+
+        <div class="about-grid">
+          <div class="about-text" data-anim="fade-left">
+            <p>
+              Detail-oriented <strong>Computing (Oil and Gas)</strong> graduate from <strong>Majan University College</strong>
+              with a perfect academic record (<strong>GPA 4.0</strong>) and hands-on experience in SCADA systems, PLC programming,
+              and full-stack web development (C# .NET, Angular).
+            </p>
+            <p>
+              Seeking an internship or entry-level opportunity to apply technical and software development skills in
+              <span class="accent">industrial automation</span>, <span class="accent">energy</span>, or
+              <span class="accent">software engineering</span> environments.
+            </p>
+            <ul class="about-highlights">
+              <li><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> GPA 4.00 / 4.00</li>
+              <li><i class="fa-solid fa-industry" aria-hidden="true"></i> SCADA &amp; PLC</li>
+              <li><i class="fa-solid fa-code" aria-hidden="true"></i> C# .NET &amp; Angular</li>
+              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Muscat, Oman</li>
+            </ul>
+          </div>
+
+          <div class="about-photo" data-anim="zoom-in">
+            <!-- PROFILE PHOTO: put your photo at assets/profile.jpg (square works best).
+                 If the file is missing, the "MH" initials are shown instead. -->
+            <div class="photo-frame">
+              <img src="assets/profile.jpg" alt="Portrait of Mohammed Yousuf Al-Hasani" id="profile-img" width="320" height="320" loading="lazy" />
+              <span class="photo-fallback" aria-hidden="true">MH</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <h2 class="section-title" data-anim="fade-up"><span class="num">02.</span> Skills</h2>
+
+        <div class="skills-grid">
+          <!-- Programming -->
+          <article class="glass-card skill-card" data-anim="fade-up">
+            <div class="card-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+            <h3>Programming</h3>
+            <!-- To change a bar, edit data-level (0–100) -->
+            <div class="skill-bar" data-level="85"><div class="skill-info"><span>C# (.NET)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill-bar" data-level="80"><div class="skill-info"><span>JavaScript</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill-bar" data-level="80"><div class="skill-info"><span>SQL (MySQL)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill-bar" data-level="55"><div class="skill-info"><span>Python (basics)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+          </article>
+
+          <!-- Web Development -->
+          <article class="glass-card skill-card" data-anim="fade-up" style="--delay: 0.1s">
+            <div class="card-icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
+            <h3>Web Development</h3>
+            <p>Full-stack development with <strong>C# .NET</strong> (backend) and <strong>Angular</strong> (frontend).</p>
+            <div class="skill-bar" data-level="80"><div class="skill-info"><span>C# .NET (Backend / APIs)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill-bar" data-level="75"><div class="skill-info"><span>Angular (Frontend)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+          </article>
+
+          <!-- Database -->
+          <article class="glass-card skill-card" data-anim="fade-up" style="--delay: 0.2s">
+            <div class="card-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+            <h3>Database Management</h3>
+            <p>Database design and querying with <strong>MySQL</strong>.</p>
+            <div class="skill-bar" data-level="80"><div class="skill-info"><span>Database Design</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill-bar" data-level="80"><div class="skill-info"><span>SQL Querying</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+          </article>
+
+          <!-- Industrial Automation -->
+          <article class="glass-card skill-card" data-anim="fade-up">
+            <div class="card-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
+            <h3>Industrial Automation</h3>
+            <div class="skill-bar" data-level="75"><div class="skill-info"><span>SCADA Systems (IGSS)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+            <div class="skill-bar" data-level="60"><div class="skill-info"><span>PLC – Ladder Logic (basics)</span><span class="pct">0%</span></div><div class="bar"><div class="fill"></div></div></div>
+          </article>
+
+          <!-- Process Automation -->
+          <article class="glass-card skill-card" data-anim="fade-up" style="--delay: 0.1s">
+            <div class="card-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+            <h3>Process Automation</h3>
+            <ul class="tag-list">
+              <li>Gas Leak Detection</li>
+              <li>Emergency Shutdown (ESD)</li>
+              <li>Instrumentation</li>
+              <li>Sensors</li>
+              <li>Actuators</li>
+              <li>FF Cables</li>
+            </ul>
+          </article>
+
+          <!-- Soft Skills -->
+          <article class="glass-card skill-card" data-anim="fade-up" style="--delay: 0.2s">
+            <div class="card-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+            <h3>Soft Skills</h3>
+            <ul class="tag-list">
+              <li>Teamwork &amp; Collaboration</li>
+              <li>Time Management &amp; Organization</li>
+              <li>Attention to Detail</li>
+              <li>Critical Thinking</li>
+              <li>Fast Learner</li>
+            </ul>
+          </article>
+
+          <!-- Languages (circular indicators) -->
+          <article class="glass-card skill-card skill-card-wide" data-anim="fade-up">
+            <div class="card-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></div>
+            <h3>Languages</h3>
+            <div class="circles">
+              <div class="circle" data-level="100">
+                <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="track" cx="60" cy="60" r="52" /><circle class="progress" cx="60" cy="60" r="52" /></svg>
+                <div class="circle-label"><strong>Arabic</strong><span>Native</span></div>
+              </div>
+              <div class="circle" data-level="90">
+                <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="track" cx="60" cy="60" r="52" /><circle class="progress" cx="60" cy="60" r="52" /></svg>
+                <div class="circle-label"><strong>English</strong><span>Fluent</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title" data-anim="fade-up"><span class="num">03.</span> Experience</h2>
+
+        <div class="timeline">
+          <!-- Item 1 (left) -->
+          <article class="timeline-item left" data-anim="slide-left">
+            <span class="timeline-dot" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i></span>
+            <div class="glass-card timeline-card">
+              <span class="timeline-date">Apr 2026 – Present</span>
+              <h3>Full-Stack Development Training</h3>
+              <p class="timeline-org">Codeline by Rihal</p>
+              <ul>
+                <li>Intensive full-stack training covering C# .NET for backend and Angular for frontend development.</li>
+                <li>Building hands-on projects applying object-oriented programming, API development, and modern web application architecture.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Item 2 (right) -->
+          <article class="timeline-item right" data-anim="slide-right">
+            <span class="timeline-dot" aria-hidden="true"><i class="fa-solid fa-industry"></i></span>
+            <div class="glass-card timeline-card">
+              <span class="timeline-date">2024 – 2025</span>
+              <h3>SCADA Final Year Project</h3>
+              <p class="timeline-org">Majan University College</p>
+              <ul>
+                <li>Developed a real-time SCADA system for gas leak detection and emergency shutdown using IGSS and PLC Ladder Logic.</li>
+                <li>Created visual alarms and automated control mechanisms; conducted testing and prepared full project documentation.</li>
+              </ul>
+            </div>
+          </article>
+          <!-- To add more: copy an <article class="timeline-item ..."> block, alternate "left"/"right" and "slide-left"/"slide-right". -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <h2 class="section-title" data-anim="fade-up"><span class="num">04.</span> Projects</h2>
+
+        <div class="projects-grid">
+          <!-- ===== PROJECT CARD (copy this whole <article> block to add a new project) ===== -->
+          <article class="glass-card project-card" data-anim="fade-up">
+            <div class="project-img">
+              <!-- Replace with: <img src="assets/project-scada.jpg" alt="Screenshot of the SCADA system" loading="lazy" /> -->
+              <div class="project-placeholder" aria-hidden="true"><i class="fa-solid fa-fire-extinguisher"></i></div>
+            </div>
+            <div class="project-body">
+              <h3>Gas Leak Detection &amp; Emergency Shutdown SCADA System</h3>
+              <p>Real-time SCADA system that monitors gas sensors, raises visual alarms and triggers an automated emergency shutdown through PLC Ladder Logic.</p>
+              <ul class="tech-tags"><li>IGSS</li><li>PLC Ladder Logic</li><li>SCADA</li></ul>
+              <a href="https://github.com/Mohammed98112" class="btn btn-small ripple" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub
+              </a>
+            </div>
+          </article>
+          <!-- ===== END PROJECT CARD ===== -->
+
+          <article class="glass-card project-card" data-anim="fade-up" style="--delay: 0.15s">
+            <div class="project-img">
+              <div class="project-placeholder" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></div>
+            </div>
+            <div class="project-body">
+              <h3>Full-Stack Web Application</h3>
+              <p>A full-stack web application with a C# .NET REST API, an Angular frontend and a MySQL database. <em>(Details coming soon.)</em></p>
+              <ul class="tech-tags"><li>C# .NET</li><li>Angular</li><li>MySQL</li></ul>
+              <a href="https://github.com/Mohammed98112" class="btn btn-small ripple" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section class="section" id="education">
+      <div class="container">
+        <h2 class="section-title" data-anim="fade-up"><span class="num">05.</span> Education</h2>
+
+        <article class="glass-card edu-card" data-anim="zoom-in">
+          <div class="edu-main">
+            <div class="card-icon big"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
+            <div>
+              <h3>Bachelor of Science in Computing (Oil and Gas)</h3>
+              <p class="edu-school">Majan University College · Muscat, Oman</p>
+              <p class="edu-year"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Graduated 2025</p>
+              <p class="edu-honor"><i class="fa-solid fa-award" aria-hidden="true"></i> Dean's Honor Certificate recipient in multiple semesters</p>
+              <p class="edu-course-title">Relevant Coursework</p>
+              <ul class="tag-list">
+                <li>Industrial Automation</li>
+                <li>SCADA Systems</li>
+                <li>Database Management</li>
+                <li>Python Programming</li>
+              </ul>
+            </div>
+          </div>
+          <div class="gpa" aria-label="GPA 4.00 out of 4.00">
+            <span class="gpa-value" id="gpa-counter" data-target="4.00">0.00</span>
+            <span class="gpa-label">GPA / 4.00</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== CERTIFICATIONS ===================== -->
+    <section class="section section-alt" id="certifications">
+      <div class="container">
+        <h2 class="section-title" data-anim="fade-up"><span class="num">06.</span> Certifications &amp; Achievements</h2>
+
+        <div class="cert-grid">
+          <article class="glass-card cert-card" data-anim="flip" style="--delay: 0s">
+            <div class="card-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
+            <h3>Dean's Honor Certificate</h3>
+            <p class="cert-org">Majan University College</p>
+            <p class="cert-date">Multiple semesters</p>
+          </article>
+
+          <article class="glass-card cert-card" data-anim="flip" style="--delay: 0.12s">
+            <div class="card-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
+            <h3>AI for Productivity (Applied / Tools Training)</h3>
+            <p class="cert-org">CodeLine Training Institute, Oman</p>
+            <p class="cert-date">Apr 2026</p>
+            <p class="cert-note">Supervised by the Ministry of Higher Education, Research and Innovation</p>
+          </article>
+
+          <article class="glass-card cert-card" data-anim="flip" style="--delay: 0.24s">
+            <div class="card-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
+            <h3>Artificial Intelligence</h3>
+            <p class="cert-org">Samsung Innovation Campus</p>
+            <p class="cert-date">Sep 2025 – Dec 2025</p>
+          </article>
+
+          <article class="glass-card cert-card" data-anim="flip" style="--delay: 0.36s">
+            <div class="card-icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></div>
+            <h3>Industrial IoT and Control Systems in Energy</h3>
+            <p class="cert-org">Cisco Networking Academy</p>
+            <p class="cert-date">Dec 2025 – Feb 2026</p>
+          </article>
+
+          <article class="glass-card cert-card" data-anim="flip" style="--delay: 0.48s">
+            <div class="card-icon"><i class="fa-solid fa-gears" aria-hidden="true"></i></div>
+            <h3>Industrial Automation &amp; SCADA Training Certificate</h3>
+            <p class="cert-org">Majan University College</p>
+          </article>
+
+          <article class="glass-card cert-card" data-anim="flip" style="--delay: 0.6s">
+            <div class="card-icon"><i class="fa-solid fa-people-group" aria-hidden="true"></i></div>
+            <h3>Organiser – Majan Research Excellence</h3>
+            <p class="cert-org">IEEE Region 8 Local Student Presentation Contest</p>
+            <p class="cert-date">Nov 2024</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title" data-anim="fade-up"><span class="num">07.</span> Get In Touch</h2>
+        <p class="section-sub" data-anim="fade-up">I'm open to internships and entry-level roles. Feel free to reach out!</p>
+
+        <div class="contact-grid">
+          <div class="contact-info" data-anim="fade-left">
+            <a class="glass-card contact-item ripple" href="mailto:seaomn27@gmail.com">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <div><span>Email</span><strong>seaomn27@gmail.com</strong></div>
+            </a>
+            <a class="glass-card contact-item ripple" href="http://www.linkedin.com/in/mohammed-alhasani-702645276" target="_blank" rel="noopener">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+              <div><span>LinkedIn</span><strong>mohammed-alhasani</strong></div>
+            </a>
+            <a class="glass-card contact-item ripple" href="https://github.com/Mohammed98112" target="_blank" rel="noopener">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              <div><span>GitHub</span><strong>Mohammed98112</strong></div>
+            </a>
+            <div class="glass-card contact-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <div><span>Location</span><strong>Muscat, Oman</strong></div>
+            </div>
+          </div>
+
+          <!-- Contact form – replace [MY_FORMSPREE_ID] with your Formspree form ID (e.g. "xyzabcd") -->
+          <form class="glass-card contact-form" id="contact-form" action="https://formspree.io/f/[MY_FORMSPREE_ID]" method="POST" data-anim="fade-up">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder=" " required autocomplete="name" />
+              <label for="name">Your Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
+              <label for="email">Your Email</label>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+              <label for="message">Your Message</label>
+            </div>
+            <!-- Honeypot field to reduce spam (hidden from users) -->
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button type="submit" class="btn btn-primary ripple" id="form-submit">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Message
+            </button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <ul class="social-links" aria-label="Social links">
+        <li><a href="http://www.linkedin.com/in/mohammed-alhasani-702645276" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+        <li><a href="https://github.com/Mohammed98112" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+        <li><a href="mailto:seaomn27@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+      </ul>
+      <p>© 2026 Mohammed Yousuf Al-Hasani. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+
+  <script src="script.js"></script>
+</body>
+</html>
