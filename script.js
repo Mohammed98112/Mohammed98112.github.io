@@ -401,7 +401,8 @@
 
   $$('[data-contact="email"]').forEach((a) => { a.href = `mailto:${emailAddr}`; });
   $$('[data-contact="phone"]').forEach((a) => { a.href = `tel:+${phoneIntl}`; });
-  $$('[data-contact="whatsapp"]').forEach((a) => { a.href = `https://wa.me/${phoneIntl}`; });
+  // WhatsApp: api.whatsapp.com instead of wa.me, which is blocked on some networks
+  $$('[data-contact="whatsapp"]').forEach((a) => { a.href = `https://api.whatsapp.com/send?phone=${phoneIntl}`; });
   $$('[data-contact-text="email"]').forEach((el) => { el.textContent = emailAddr; });
   $$('[data-contact-text="phone"]').forEach((el) => { el.textContent = phonePretty; });
 })();
