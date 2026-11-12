@@ -14,7 +14,7 @@ assets/      – images and CV
 | # | What | Where | How |
 |---|------|-------|-----|
 | 1 | **Hero background image** | `assets/background.jpg` | Replace the file with your own photo and keep the same name. To use a different file name, change `--hero-image` at the top of `style.css`. A wide image, 1920×1080 or larger, works best. | **Also replace `assets/background-mobile.jpg`**, a smaller copy that phones and tablets use for faster loading. You can use the same image, ideally resized to about 1600px wide.
-| 2 | **CV PDF** | `assets/CV.pdf` | This is currently your uploaded CV. To update it, replace the file and keep the name `CV.pdf`. |
+| 2 | **CV PDF** | `assets/CV.pdf` | Your CV (updated Nov 2026 to match the site). To update it, replace the file, keep the name `CV.pdf`, and raise the `?v=` number on the Download CV link in `index.html` (e.g. `CV.pdf?v=3`) so visitors get the new copy. |
 | 3 | **Profile photo** | `assets/profile.jpg` | Add a square photo with this name. Until you do, the site shows "MH" initials. |
 | 4 | **Formspree ID** | `index.html` → search `formspree.io/f/` | ✅ Done: set to `meaaygvv`. To use a different form, replace that code. |
 | 5 | **Project links** | `index.html` → `#projects` section, `View on GitHub` buttons | Both buttons currently go to your GitHub profile. Change each `href` to the project's repo URL. |
