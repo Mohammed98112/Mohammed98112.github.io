@@ -1,0 +1,7 @@
+# Never convert line endings in binary files (keeps PDFs and images intact)
+*.pdf  binary
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.webp binary
+*.ico  binary
